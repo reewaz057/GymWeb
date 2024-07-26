@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Delete</title>
+    <style>
+       body {
+            background-image: url('static/gym/background.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header, main {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+        h1 {
+            font-size: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Confirm Delete</h1>
+    </header>
+    <main>
+        <section>
+            <p>Are you sure you want to delete {{ member.first_name }} {{ member.last_name }}?</p>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit">Confirm Delete</button>
+                <a href="{% url 'members_list' %}">Cancel</a>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
